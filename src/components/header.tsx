@@ -1,13 +1,9 @@
 import Link from "next/link";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Input,
-} from "@heroui/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/react";
 import HeaderAuth from "./header-auth";
 import paths from "@/paths";
+import SearchInput from "./search-input";
+import { Suspense } from "react";
 // import { getServerSession } from "next-auth";
 // import { authOptions } from "@/lib/auth";
 // import * as actions from "@/actions";
@@ -22,7 +18,9 @@ export default function Header() {
       </NavbarBrand>
       <NavbarContent justify="center">
         <NavbarItem>
-          <Input />
+          <Suspense>
+            <SearchInput />
+          </Suspense>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">

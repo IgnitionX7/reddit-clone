@@ -9,7 +9,8 @@ interface TopicShowPageProps {
 }
 
 export default async function TopicShowPage({ params }: TopicShowPageProps) {
-  const slug = await decodeURIComponent(params.slug); // No need to await
+  const { slug: rawSlug } = await params;
+  const slug = await decodeURIComponent(rawSlug); // this is to fix the %20 spaces issue in url
   return (
     <div className="grid grid-cols-4 gap-4 p-4">
       <div className="col-span-3">
